@@ -1,5 +1,5 @@
 {
-  "name": "paises",
+  "name": "angular2-base",
   "version": "1.0.0",
   "scripts": {
     "lite": "lite-server",

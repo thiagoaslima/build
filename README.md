@@ -5,6 +5,7 @@ This repository has the goal of making seeding an Angular 2 project easy. Curren
 
 This is a repository forked from mschwarzmueller/angular2-seed, updated to RC4 and router 3.0.0-alpha.8.
 
+We gonna try to keep this repository updated with the angular 2 development.
 
 ## Features
 dev/ folder holds TypeScript (Angular 2) code => compiled into app/ folder, bundled into bundle.js (incl. dependencies). Templates (html) and Styles (css) are all copied to app/ folder too.
