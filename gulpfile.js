@@ -39,6 +39,11 @@ gulp.task('build-ts', function () {
         .pipe(gulp.dest(appProd));
 });
 
+gulp.task('build-template', function () {
+    return gulp.src([appDev + '**/*.html', appDev + '**/*.css'])
+            .pipe(gulp.dest(appProd));
+})
+
 gulp.task('bundle-ts', ['build-ts'], function() {
     var path = require("path");
     var Builder = require('systemjs-builder');
@@ -48,7 +53,7 @@ gulp.task('bundle-ts', ['build-ts'], function() {
     var builder = new Builder('', 'systemjs.config.js');
 
     builder
-        .buildStatic('app/boot.js', 'app/bundle.js', { minify: true, sourceMaps: true})
+        .buildStatic('app/main.js', 'app/bundle.js', { minify: true, sourceMaps: true})
         .then(function() {
             console.log('Build complete');
         })
@@ -60,7 +65,9 @@ gulp.task('bundle-ts', ['build-ts'], function() {
 
 gulp.task('watch', function () {
     gulp.watch(appDev + '**/*.ts', ['build-ts']);
+    gulp.watch(appDev + '**/*.html', ['build-template']);
+    gulp.watch(appDev + '**/*.css', ['build-template']);
     gulp.watch(assetsDev + 'scss/**/*.scss', ['build-css']);
 });
 
-gulp.task('default', ['watch', 'build-ts', 'bundle-ts', 'build-css']);
+gulp.task('default', ['watch', 'build-ts', 'build-template', 'bundle-ts', 'build-css']);
