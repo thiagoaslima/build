@@ -4,13 +4,15 @@
     var map = {
         'app':                        'app', // 'dist',
         'rxjs':                       'node_modules/rxjs',
-        '@angular':                   'node_modules/@angular'
+        '@angular':                   'node_modules/@angular',
+        'slug':                       'node_modules/slug'
     };
 
     // packages tells the System loader how to load when no filename and/or no extension
     var packages = {
-        'app':                        { main: 'boot.js',  defaultExtension: 'js' },
+        'app':                        { main: 'main.js',  defaultExtension: 'js' },
         'rxjs':                       { defaultExtension: 'js' },
+        'slug':                       { defaultExtension: 'js' }
     };
 
     var packageNames = [

@@ -1,0 +1,30 @@
+<div id="viewer">
+
+    <local-display [hide]="!hide" [idioma]="idioma.sigla" [pais]="paisSelecionado | async" (editMode)="updatehide($event)"></local-display>
+    <!-- local display
+    <div [class.hidden]="editing">
+        <input type="text" readonly [value]="paisView">
+    </div>
+    -->
+
+    <input-search [hide]="hide" (textChanges)="updateText($event)"></input-search>
+    <!-- input-search
+    <div [class.hidden]="!editing">
+        <input #input type="text" [value]="pais?.nome?.PT" (keyup)="onKeyup()" [(ngModel)]="paisTyping" name="name">
+    </div>
+    -->
+</div>
+
+<!--
+<div *ngIf="continenteSelecionado" class="seletor-local-filtro">
+    <button type="button">X</button>
+    <p>Visualizando países de {{continenteSelecionado?.nome}}</p>
+</div>
+-->
+
+<lista-locais [hide]="hide" [idioma]="idioma.sigla" [filterText]="filterText | async" [lista]="listaContinentes | async"
+    [continente]="continenteSelecionado | async" (selecionarContinente)="selecionarContinente($event)"></lista-locais>
+
+<!--            
+<lista-paises *ngIf="editing" [paisSelecionado]="paisSelecionado" [lista]="listaContinentes"></lista-paises>
+-->

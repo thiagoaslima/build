@@ -1,0 +1,59 @@
+.lista--container{
+    position: absolute;
+    z-index: 10;
+    top: 2.5vh;
+    left: 2.5vw;
+    width: 95vw;
+        max-width: 300px;
+    /*margin: 0 20px;*/
+    height: 95vh;
+        max-height: 500px;
+    box-sizing: border-box;
+    text-align: left;
+    border: #ddd 1px solid;
+    background-color: #fff;
+    overflow: auto;
+    border-radius: 2px;
+    -webkit-box-shadow: 0px 2px 10px 1px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0px 2px 10px 1px rgba(0,0,0,0.5);
+    box-shadow: 0px 2px 10px 1px rgba(0,0,0,0.5);
+
+}
+.lista--container--scrollable{
+    overflow: visible;
+}
+ul{
+    padding: 0;
+    }
+    .lista--continente--titulo li p{
+        padding: 10px;
+        font-size: 2em;
+        font-weight: bold;
+        text-align: center;
+    }
+    .lista--pais--titulo li{
+        padding: 10px;
+        font-size: 1em;
+        font-weight: normal;
+        border-bottom: 1px solid #CFD8DC;
+        }
+        .lista--pais--titulo li:first-child{
+            border-top: 1px solid #CFD8DC;
+        }
+    .lista--pais--titulo li a{
+        text-decoration: none;
+        color: inherit;
+        display: block;
+    }
+    .lista--pais--titulo li a:visited{
+        color: inherit;
+    }
+
+
+  @media screen and (min-width: 48em) {
+.lista--container{
+    left: -50px;
+    position: relative;
+  }
+
+   
