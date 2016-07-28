@@ -38,7 +38,7 @@ files.forEach(file => {
     var content = fs.readFileSync(file, 'utf-8');
     
     var minContent = minify(content, {
-        caseSensitive: false,
+        caseSensitive: true,
         collapseBooleanAttributes: true,
         collapseInlineTagWhitespace: true,
         collapseWhitespace: true,

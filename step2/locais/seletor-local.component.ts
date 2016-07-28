@@ -46,10 +46,10 @@ class LocalDisplay implements OnChanges {
 
 
 @Component({
-    moduleId: __moduleName,
+    
     selector: 'input-search',
-    templateUrl: 'input-search.template.html',
-    styleUrls: ['seletorLocal.styles.css']
+    template: `<div [class.hidden]="hidden"> <input #input (keyup)="updateText()" [(ngModel)]="text" type="text"> </div>`,
+    styles: [`.seletor-local-filtro{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row}.hidden{height:0;opacity:0;overflow:hidden}.layout--container{width:100%;box-sizing:boder-box}.layout--container--child{width:100%;box-sizing:inherit}`]
     /*
     template: `
         SEARCH
@@ -95,11 +95,11 @@ class InputSearch implements OnChanges, AfterContentInit {
 
 
 @Component({
-    moduleId: __moduleName,
+    
     selector: 'lista-locais',
     directives: [ROUTER_DIRECTIVES],
-    templateUrl: 'lista-locais.template.html',
-    styleUrls: ['listaLocais.styles.css']
+    template: `<div class="lista--container" [hidden]="hidden"> <div class="lista--container--scrollable"> <ul class="lista--continente--titulo" id="seletor-local-options"> <li *ngFor="let continente of lista"> <p (click)="selecionar(continente)" class="seletor-local-separador">{{continente.nome[idioma]}}</p> <ul class="lista--pais--titulo"> <li *ngFor="let pais of continente.paises[idioma]"> <a [routerLink]="['/', idioma, '/pais', pais.slug]"> {{pais.nome[idioma]}} </a> </li> </ul> </li> </ul> </div> </div>`,
+    styles: [`.lista--container{position:absolute;z-index:10;top:83px;left:2.5vw;width:95vw;max-width:300px;height:80vh;max-height:500px;box-sizing:border-box;text-align:left;border:1px solid #ddd;background-color:#fff;overflow:auto;border-radius:2px;box-shadow:0 2px 10px 1px rgba(0,0,0,.5)}.lista--container--scrollable{overflow:visible}ul{padding:0}.lista--continente--titulo li p{padding:10px;font-size:2em;font-weight:700;text-align:center}.lista--pais--titulo li{padding:10px;font-size:1em;font-weight:400;border-bottom:1px solid #CFD8DC}.lista--pais--titulo li:first-child{border-top:1px solid #CFD8DC}.lista--pais--titulo li a{text-decoration:none;color:inherit;display:block}.lista--pais--titulo li a:visited{color:inherit}@media screen and (min-width:48em){.lista--container{top:12px;left:-50px;position:relative}}`]
     /*
     template: `
         LISTA_LOCAIS
@@ -174,11 +174,11 @@ export class ListaLocaisComponent implements OnChanges {
 
 
 @Component({
-    moduleId: __moduleName,
+    
     selector: 'seletor-local',
     directives: [ListaLocaisComponent, InputSearch, LocalDisplay],
-    templateUrl: 'seletor-local.template.html',
-    styleUrls: ['seletorLocal.styles.css']
+    template: `<div id="viewer"> <local-display (editMode)="updatehide($event)" [hide]="!hide" [idioma]="idioma.sigla" [pais]="paisSelecionado | async"></local-display> <input-search (textChanges)="updateText($event)" [hide]="hide"></input-search> </div> <lista-locais (selecionarContinente)="selecionarContinente($event)" [continente]="continenteSelecionado | async" [filterText]="filterText | async" [hide]="hide" [idioma]="idioma.sigla" [lista]="listaContinentes | async"></lista-locais> `,
+    styles: [`.seletor-local-filtro{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row}.hidden{height:0;opacity:0;overflow:hidden}.layout--container{width:100%;box-sizing:boder-box}.layout--container--child{width:100%;box-sizing:inherit}`]
     /*
     template: `
     SELETOR_LOCAL

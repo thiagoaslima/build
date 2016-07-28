@@ -1,12 +1,13 @@
 .lista--container{
     position: absolute;
     z-index: 10;
-    top: 2.5vh;
+    /*top: 2.5vh;*/
+    top: 83px;
     left: 2.5vw;
     width: 95vw;
         max-width: 300px;
     /*margin: 0 20px;*/
-    height: 95vh;
+    height: 80vh;
         max-height: 500px;
     box-sizing: border-box;
     text-align: left;
@@ -50,10 +51,10 @@ ul{
     }
 
 
-  @media screen and (min-width: 48em) {
-.lista--container{
-    left: -50px;
-    position: relative;
-  }
-
-   
+@media screen and (min-width: 48em) {
+    .lista--container{
+        top: 12px;
+        left: -50px;
+        position: relative;
+    }
+}

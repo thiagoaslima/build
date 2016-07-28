@@ -58,28 +58,25 @@ function evalConfig(str) {
 
 files.forEach(file => {
     console.log(file);
-    
 
     var path = file.split('/').slice(0, -1).join('/') + '/';
     var content = fs.readFileSync(file, 'utf-8');
 
-    if (file === 'step1/idioma/seletor-idioma.component.ts') {
-                debugger;
-            }
-
     if (content.indexOf('@Component') >= 0) {
         //var regex = /@Component\(([^}]*})\)/g;
-        var regex = /@Component\(([\s\S]*)\)[\s\n]*export/; 
+        var regex = /@Component\(\{([\s\S]+?)(?=\}\)[\s]*[export|class])/g; 
         var configs = regex.exec(content);
+        var match = content.match(regex);
 
-        if (!configs || !configs.length) {
+        if (file === "step1/infoPais/infoPais.component.ts") {
+            debugger;
+        }
+
+        if (!match || !match.length) {
             return content;
         } else {
-            configs = configs.slice(1);
+            configs = match;
         }
-        if (file === 'step1/idioma/seletor-idioma.component.ts') {
-                debugger;
-            }
 
 
         // em cada configuração de componente, 
@@ -87,12 +84,16 @@ files.forEach(file => {
         // e substitui seus valores pelo arquivo
         var configsMod = configs.map(config => {
 
-            if (config.indexOf('templateUrl') >= 0) {
-                var regexComentado = /\/\/[\s]*(templateUrl: ([^,\n}]*))/;
-                var resultsComent = regexComentado.exec(content); 
+            if (file === "step1/infoPais/infoPais.component.ts") {
+                debugger;
+            }
 
-                var regex = /(templateUrl: ([^,\n}]*))/;
-                var results = regex.exec(content);
+            if (config.indexOf('templateUrl') >= 0) {
+                var regexComentado = /\/\/[\s]*(templateUrl[\s]*:[\s]*([^,\n}]*))/;
+                var resultsComent = regexComentado.exec(config); 
+
+                var regex = /(templateUrl[\s]*:[\s]*([^,\n}]*))/;
+                var results = regex.exec(config);
 
                 if (results.length && !resultsComent) {
                     var html = fs.readFileSync(path + results[2].trim().slice(1, -1), 'utf-8');
@@ -101,11 +102,11 @@ files.forEach(file => {
             }
 
             if (config.indexOf('styleUrls') >= 0) {
-                var regexComentado = /\/\/[\s]*(templateUrl: ([^,\n}]*))/;
-                var resultsComent = regexComentado.exec(content); 
+                var regexComentado = /\/\/[\s]*(styleUrls[\s]*:[\s]*([^,\n}]*))/;
+                var resultsComent = regexComentado.exec(config); 
 
-                var regex = /(styleUrls: \[([^\]]*))/;
-                var results = regex.exec(content);
+                var regex = /(styleUrls[\s]*:[\s]*\[([^\]]*))/;
+                var results = regex.exec(config);
                 var array = results[2].split(',').filter(name => !!name);
 
                 if (results.length && !resultsComent) {
@@ -117,7 +118,7 @@ files.forEach(file => {
             // não é necessário o módulo uma vez que os arquivos passam a ser inline
             if (config.indexOf('moduleId') >= 0) {
                 var regex = /(moduleId: ([^\n}]*))/;
-                var results = regex.exec(content);
+                var results = regex.exec(config);
                 config = config.replace(results[0], '');
             }
             

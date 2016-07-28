@@ -47,11 +47,17 @@ var minContents = contents.map(content => {
 */
 
 files.forEach((file, index) => {
+    if (file === 'dev/locais/listaLocais.styles.css') {
+        debugger;
+    }
     var newFile = file.replace(inputDir, outputDir);
     var content = contents[index];
 
     postcss([ autoprefixer ]).process(content).then( (result) => {
-        result.messages.forEach(message => console.warn(message.type, '(' + message.column + ':' + message.line + ')', message.text))
+        if (file === 'dev/locais/listaLocais.styles.css') {
+            debugger;
+        }
+        result.messages.forEach(message => console.log(message.type, '(' + message.column + ':' + message.line + ')', message.text))
         var content = new CleanCSS(config.cleanCSS).minify(result.css).styles.replace(/'\\/g, "'@#$___HASH_OCTAL___@#$");
 
         fs.writeFile(newFile, content, function (err) {
@@ -61,6 +67,10 @@ files.forEach((file, index) => {
 
             console.log(file.replace(inputDir, outputDir), " saved!");
         });
+    }).catch( err => {
+        console.log( newFile, " NOT SAVED!");
+        console.warn(err);
+        throw err;
     })
 
 });

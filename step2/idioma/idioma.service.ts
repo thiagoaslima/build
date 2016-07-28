@@ -5,15 +5,15 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/share';
 
-type IdiomaSigla = 'pt' | 'en';
+export type IdiomaSigla = 'pt' | 'en';
 
-interface Idioma {
+export interface Idioma {
     nome: string,
     sigla: IdiomaSigla
 }
 
 @Injectable()
-class IdiomaService {
+export class IdiomaService {
     idiomas = <Idioma[]>[{
             "nome": "Português Brasileiro",
             "sigla": "pt"
@@ -42,5 +42,3 @@ class IdiomaService {
         }, <Idioma>null);
     }
 }
-
-export { Idioma, IdiomaSigla, IdiomaService }

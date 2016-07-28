@@ -3,7 +3,7 @@ var gulp = require('gulp');
 var assetsDev = 'assets/';
 var assetsProd = 'src/';
 
-var appDev = 'dev/';
+var appDev = 'step2/';
 var appProd = 'app/';
 
 /* CSS */
@@ -44,7 +44,7 @@ gulp.task('build-template', function () {
             .pipe(gulp.dest(appProd));
 })
 
-gulp.task('bundle-ts', ['build-ts'], function() {
+gulp.task('bundle-ts', function() {
     var path = require("path");
     var Builder = require('systemjs-builder');
 
@@ -70,4 +70,4 @@ gulp.task('watch', function () {
     gulp.watch(assetsDev + 'scss/**/*.scss', ['build-css']);
 });
 
-gulp.task('default', ['watch', 'build-ts', 'build-template', 'bundle-ts', 'build-css']);
+gulp.task('default', ['watch', 'build-ts', 'build-template', 'build-css']);
