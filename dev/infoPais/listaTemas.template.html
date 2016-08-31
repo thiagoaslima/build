@@ -1,6 +1,0 @@
-<div id="temas--container" class="temas--container">
-    <a onclick="document.getElementById('temas--container').classList.remove('temas-container--move');" class="temas--lista--fechar"><i class="fa fa-times" aria-hidden="true"></i></a>
-    <a *ngFor="let tema of temas" [routerLink]="['/', idioma, '/pais/', pais, '/info/', tema.slug]">
-        {{tema.nome[idioma]}}
-    </a>
-</div>

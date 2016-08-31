@@ -58,12 +58,9 @@ function evalConfig(str) {
 
 files.forEach(file => {
     console.log(file);
-<<<<<<< HEAD
     if (file.indexOf('dadosOlimpicos') >= 0) {
             debugger;
         }
-=======
->>>>>>> c32567a53d2bd9bcf0315871d91109fbd194bd87
 
     var path = file.split('/').slice(0, -1).join('/') + '/';
     var content = fs.readFileSync(file, 'utf-8');
@@ -74,11 +71,7 @@ files.forEach(file => {
         var configs = regex.exec(content);
         var match = content.match(regex);
 
-<<<<<<< HEAD
         if (file === "step1/infoPais/dadosOlimpicos.component.ts") {
-=======
-        if (file === "step1/infoPais/infoPais.component.ts") {
->>>>>>> c32567a53d2bd9bcf0315871d91109fbd194bd87
             debugger;
         }
 
@@ -94,11 +87,7 @@ files.forEach(file => {
         // e substitui seus valores pelo arquivo
         var configsMod = configs.map(config => {
 
-<<<<<<< HEAD
             if (file === "step1/infoPais/dadosOlimpicos.component.ts") {
-=======
-            if (file === "step1/infoPais/infoPais.component.ts") {
->>>>>>> c32567a53d2bd9bcf0315871d91109fbd194bd87
                 debugger;
             }
 
