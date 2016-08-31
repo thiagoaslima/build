@@ -1,0 +1,44 @@
+<!doctype>
+<html>
+
+<head>
+    <base href="/paises">
+    <meta charset="UTF-8">
+    <title>Países | IBGE</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- 2.5. Load layout external CSS -->
+    <!-- Grid-->
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-min.css">
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
+    <!--Icones-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    <!--Custom template-->
+    <link rel="stylesheet" href="paises/src/css/general_template.css">
+
+    <!--Font-->
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+
+    <!-- 1. Load libraries -->
+    <!-- Polyfill(s) for older browsers -->
+    <script src="paises/node_modules/core-js/client/shim.min.js"></script>
+
+    <script src="paises/node_modules/zone.js/dist/zone.js"></script>
+    <script src="paises/node_modules/reflect-metadata/Reflect.js"></script>
+
+    <!-- 2. Configure SystemJS -->
+    <!--<script src="paises/node_modules/systemjs/dist/system.src.js"></script>
+    <script src="systemjs.config.js"></script>-->
+</head>
+
+<body>
+    <root-app>Loading...</root-app>
+
+    <script>
+        //System.import('app').catch(function(err){ console.error(err);  });
+    </script>
+    <script src="paises/app/bundle.js"></script>
+    <!--<script src="dist/bundle.min.js"></script>-->
+</body>
+
+</html>

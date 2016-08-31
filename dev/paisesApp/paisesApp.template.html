@@ -1,0 +1,141 @@
+<div class="layout--header layout--size--fullwidth layout--color--main layout--bgimg--top">
+    <div class="layout--size--maxwidth">
+        <div class="pure-g">
+
+
+            <!-- HEADER -->
+            <div class="pure-u-1 pure-u-md-3-4 layout--size--oneclickheight">
+
+                <div class="pure-g">
+                    <!--<div class="pure-u-1-4 layout--textcolor--neutral--light layout--ico--menu"><i class="fa fa-bars" aria-hidden="true"></i></div>-->
+                    <div class="pure-u-3-4 layout--header--centercontent layout--header--hspacer--tit">
+                        <a [routerLink]="['/']">
+                            <img class="layout--img--titulopaises--m" src="images/paises-olimpicos-titulo-m.png" />
+                            <img class="layout--img--titulopaises--d" src="images/paises-olimpicos-titulo-d.png" />
+                        </a>
+                    </div>
+                    <div class="pure-u-1-4 layout--header--hspacer--log">
+                        <a href="http://www.ibge.gov.br/" target="_blank">
+                        <img class="layout--img--logoibge--m" src="images/ibge-logo-m.png" />
+                        <img class="layout--img--logoibge--d" src="images/ibge-logo-d.png" />
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- NAV -->
+            <div class="pure-u-1 pure-u-md-1-4 layout--size--oneclickheight layout--color--main--nav">
+                <nav>
+                    <!--<div id="hamburger">X</div>-->
+                    <div class="pure-g">
+                        <div class="pure-u-3-4 layout--header--centercontent layout--header--hspacer--sel">
+                            <!--<input type="text" />-->
+                            <!--
+                            <seletor-local>local</seletor-local>
+                            -->
+                            <seletor-local [idioma]="idioma | async" [continentes]="continentes | async" [selecionado]="paisSelecionado | async"></seletor-local>
+                        </div>
+                        <div class="pure-u-1-4 layout--header--hspacer--idi">
+                            <div>
+                                <!--Clickable area-->
+                                <div class="layout--ico--language layout--textcolor--main layout--color--neutral--light">
+                                    <seletor-idioma [selecionado]="idioma | async" [lista]="idiomas" [url]="url"></seletor-idioma>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+
+
+<div class="layout--size--fullwidth pure-g layout--mainbox">
+    <div class="layout--size--maxwidth pure-u-1">
+        <div class="pure-g">
+            <!--Footer e Info-->
+            <div class="pure-u-1 layout--info--desktop">
+                <!--
+                    Info desktop
+                    -->
+            </div>
+            <!--Main-->
+            <div class="pure-u-1 layout--shin--headerspacer layout--size--oneclickheight--2x">
+                <!--header spacer-->
+            </div>
+            <div class="pure-u-1 layout--maincontentbox">
+                <!--Content goes HERE-->
+
+                <!--CONTENT-->
+                <main>
+
+                    <!--
+                        <h1>Países</h1>
+                        -->
+                    <!--
+                    <nav>
+                        <a [routerLink]="['/']">Hello</a>
+                        <a [routerLink]="['/2']">Hello 2</a>
+                    </nav>
+                    -->
+                    <router-outlet></router-outlet>
+                </main>
+
+
+                <!--CONTENT-->
+            </div>
+
+            <div class="pure-u-1 layout--shin--footerspacer layout--size--oneclickheight">
+                <!--header spacer-->
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+<!--Footer e Info-->
+<div class="layout--size--fullwidth layout--footer--desktop layout--color--accent">
+    <div class="pure-g layout--size--maxwidth">
+        <div class="pure-u-1">
+            <p class="footer--desktop--item"><a href="http://www.ibge.gov.br/" target="_blank">IBGE 2016</a></p>
+            <p class="footer--desktop--item">
+
+
+<a href="http://www.facebook.com/ibgeoficial" target="_blank"><span class="fa-stack fa-lg"><i class="fa fa-square-o fa-stack-2x layout--textcolor--neutral--light"></i><i class="fa fa-facebook fa-stack-1x layout--textcolor--neutral--light"></i></span></a> 
+<a href="http://twitter.com/ibgecomunica" target="_blank"><span class="fa-stack fa-lg"><i class="fa fa-square-o fa-stack-2x layout--textcolor--neutral--light"></i><i class="fa fa-twitter fa-stack-1x layout--textcolor--neutral--light"></i></span></a> 
+<a href="http://www.youtube.com/ibgeoficial" target="_blank"><span class="fa-stack fa-lg"><i class="fa fa-square-o fa-stack-2x layout--textcolor--neutral--light"></i><i class="fa fa-youtube-play fa-stack-1x layout--textcolor--neutral--light"></i></span></a> 
+<a href="https://www.instagram.com/ibgeoficial/" target="_blank"><span class="fa-stack fa-lg"><i class="fa fa-square-o fa-stack-2x layout--textcolor--neutral--light"></i><i class="fa fa-instagram fa-stack-1x layout--textcolor--neutral--light"></i></span></a>
+
+            </p>
+
+
+<p class="footer--desktop--item">
+    <strong>Fontes para dados Olímpicos</strong>:
+     <br /><a target="_blank" href="https://www.theguardian.com/sport/series/london-2012-olympics-data">theguardian.com/sport/series/london-2012-olympics-data</a> e 
+     <a target="_blank" href="http://www.sports-reference.com/olympics/">sports-reference.com/olympics/</a>,
+      <br />acessados em 21/07/2016.
+
+</p>
+
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+        </div>
+    </div>
+</div>
+
+
+<div class="layout--info--mobile layout--size--fullwidth layout--color--accent">
+    <div class="pure-g">
+        <div class="pure-u-1 layout--size--oneclickheight">
+            <p class="footer--mobile--item"><a href="http://www.ibge.gov.br/" target="_blank">IBGE 2016</a></p>
+        </div>
+    </div>
+</div>

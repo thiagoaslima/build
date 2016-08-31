@@ -12,11 +12,19 @@
     "start": "concurrently \"npm run gulp\" \"npm run lite\" ",
     "typings": "typings",
     "build": "npm run step1 && npm run step2 && npm run step3",
+<<<<<<< HEAD
     "step1": "npm run cleancss && npm run htmlmin && copyfiles -u 1 'dev/**/*.ts' step1 && copyfiles 'dev/**/*.json' step1",
     "step2": "npm run inline &&  copyfiles 'step1/**/*.json' step2",
     "step3": "npm run rollup && npm run tsc && npm run uglify",
     "cleancss": "node ./buildScripts/css-minify.js dev step1",
     "htmlmin": "node ./buildScripts/html-minify.js dev step1",
+=======
+    "step1": "npm run cleancss && npm run htmlmin && copyfiles -u 1 'dev/**/*.ts' $npm_package_config_step1 && copyfiles '$npm_package_config_dev/**/*.json' $npm_package_config_step1",
+    "step2": "npm run inline &&  copyfiles '$npm_package_config_step1/**/*.json' $npm_package_config_step2",
+    "step3": "npm run rollup && npm run tsc && npm run uglify",
+    "cleancss": "node ./buildScripts/css-minify.js $npm_package_config_dev $npm_package_config_step1",
+    "htmlmin": "node ./buildScripts/html-minify.js $npm_package_config_dev $npm_package_config_step1",
+>>>>>>> c32567a53d2bd9bcf0315871d91109fbd194bd87
     "inline": "node ./buildScripts/inline-template.js step1 step2",
     "rollup": "rollup -c rollup.config.js",
     "tsc": "tsc --out ./dist/bundle.js --target es5  --allowJs dist/build.es2015.js",
@@ -24,6 +32,7 @@
   },
   "license": "MIT",
   "dependencies": {
+<<<<<<< HEAD
     "@angular/common": "2.0.0-rc.5",
     "@angular/compiler": "2.0.0-rc.5",
     "@angular/core": "2.0.0-rc.5",
@@ -42,12 +51,33 @@
     "zone.js": "^0.6.12",
 
     "slug": "^0.9.1"
+=======
+    "@angular/common": "2.0.0-rc.4",
+    "@angular/compiler": "2.0.0-rc.4",
+    "@angular/core": "2.0.0-rc.4",
+    "@angular/forms": "0.2.0",
+    "@angular/http": "2.0.0-rc.4",
+    "@angular/platform-browser": "2.0.0-rc.4",
+    "@angular/platform-browser-dynamic": "2.0.0-rc.4",
+    "@angular/router": "3.0.0-beta.2",
+    "core-js": "^2.4.0",
+    "reflect-metadata": "0.1.3",
+    "rxjs": "5.0.0-beta.6",
+    "rxjs-es": "^5.0.0-beta.10",
+    "slug": "^0.9.1",
+    "systemjs": "0.19.26",
+    "zone.js": "0.6.12"
+>>>>>>> c32567a53d2bd9bcf0315871d91109fbd194bd87
   },
   "devDependencies": {
     "autoprefixer": "^6.3.7",
     "babel-preset-es2015-rollup": "^1.1.1",
     "clean-css": "^3.4.19",
+<<<<<<< HEAD
     "concurrently": "^2.2.0",
+=======
+    "concurrently": "^2.0.0",
+>>>>>>> c32567a53d2bd9bcf0315871d91109fbd194bd87
     "copyfiles": "^1.0.0",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^3.1.0",
@@ -56,7 +86,11 @@
     "gulp-sourcemaps": "^1.6.0",
     "gulp-typescript": "^2.10.0",
     "html-minifier": "^3.0.1",
+<<<<<<< HEAD
     "lite-server": "^2.2.2",
+=======
+    "lite-server": "^2.1.0",
+>>>>>>> c32567a53d2bd9bcf0315871d91109fbd194bd87
     "postcss-cli": "^2.5.2",
     "rimraf": "^2.5.4",
     "rollup": "^0.34.1",
@@ -65,7 +99,11 @@
     "rollup-plugin-node-resolve": "^1.7.1",
     "rollup-plugin-typescript": "^0.7.7",
     "systemjs-builder": "^0.15.16",
+<<<<<<< HEAD
     "typings": "^1.3.2",
+=======
+    "typings": "^0.8.1",
+>>>>>>> c32567a53d2bd9bcf0315871d91109fbd194bd87
     "uglifyjs": "^2.4.10"
   }
 }
