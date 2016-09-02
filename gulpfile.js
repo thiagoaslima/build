@@ -3,7 +3,7 @@ var gulp = require('gulp');
 var assetsDev = 'assets/';
 var assetsProd = 'css/';
 
-var appDev = 'step2/';
+var appDev = 'dev/';
 var appProd = 'app/';
 
 /* CSS */
