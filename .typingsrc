@@ -1,0 +1,4 @@
+{
+  "strictSSL": false,
+  "rejectUnauthorized": false
+}
