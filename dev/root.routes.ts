@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 
-import { EstadosComponent } from './estados/estados.component';
+import { EstadosComponent } from './localidades/estados.component';
 import { PesquisasComponent } from './pesquisas/pesquisas.component';
 
 export const RootRoutes: Routes = [

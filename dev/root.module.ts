@@ -1,12 +1,14 @@
-import { NgModule, provide } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
 
 import { RootComponent } from './root.component';
-import { EstadosComponent } from './estados/estados.component';
+import { EstadosComponent } from './localidades/estados.component';
 import { PesquisasComponent } from './pesquisas/pesquisas.component';
+
+import { LocalidadeModule } from './localidades/localidades.module';
 
 import { RootRoutes } from './root.routes';
 
@@ -14,11 +16,12 @@ import { RootRoutes } from './root.routes';
   imports: [
     BrowserModule,
     HttpModule,
-    RouterModule.forRoot(RootRoutes)
+    RouterModule,
+    RouterModule.forRoot(RootRoutes),
+    LocalidadeModule
   ],
   declarations: [
     RootComponent,
-    EstadosComponent,
     PesquisasComponent
   ],
   bootstrap: [RootComponent],

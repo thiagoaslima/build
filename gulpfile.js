@@ -30,12 +30,17 @@ gulp.task('build-css', function () {
         .pipe(gulp.dest(assetsProd + 'css/'));
 });
 
-gulp.task('build-ts', function () {
+gulp.task('build-ts', ['build-json'], function () {
     return gulp.src(appDev + '**/*.ts')
         .pipe(sourcemaps.init())
         .pipe(typescript(tsProject))
         .pipe(sourcemaps.write())
         //.pipe(jsuglify())
+        .pipe(gulp.dest(appProd));
+});
+
+gulp.task('build-json', function () {
+    return gulp.src(appDev + '**/*.json')
         .pipe(gulp.dest(appProd));
 });
 

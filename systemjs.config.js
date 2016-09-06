@@ -23,6 +23,7 @@
       '@angular/router': 'npm:@angular/router/bundles/router.umd.js',
       
       // other libraries
+      'slug':                       'npm:slug',
       'rxjs':                       'npm:rxjs',
       'angular2-in-memory-web-api': 'npm:angular2-in-memory-web-api',
     },
