@@ -1,21 +1,29 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
-import { EstadosComponent } from './estados.component';
-import { LocalidadeService } from './localidades.service';
+import { LocalidadeComponent } from './localidade.component';
+import { EstadoComponent } from './estado/estado.component';
+
+import { LocalidadeService } from './localidade.service';
 
 @NgModule({
     imports: [
+        CommonModule,
         HttpModule,
         RouterModule
     ],
     declarations: [
-        EstadosComponent
+        EstadoComponent,
+        LocalidadeComponent
     ],
     exports: [
-        EstadosComponent
+        EstadoComponent,
+        LocalidadeComponent
     ],
-    providers: [LocalidadeService]
+    providers: [
+        LocalidadeService
+    ]
 })
 export class LocalidadeModule { }

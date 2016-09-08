@@ -1,0 +1,8 @@
+<h2>
+   {{estado?.nome}} - {{estado?.sigla}} (<small>{{estado?.codigo}})</small>)
+</h2>
+<ul>
+    <li *ngFor="let municipio of estado?.municipios">
+        {{municipio.nome}} (<small>{{municipio.codigo}}</small>)
+    </li>
+</ul>

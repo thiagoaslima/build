@@ -5,7 +5,7 @@ import { RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
 
 import { RootComponent } from './root.component';
-import { EstadosComponent } from './localidades/estados.component';
+import { LocalidadeComponent } from './localidades/localidade.component';
 import { PesquisasComponent } from './pesquisas/pesquisas.component';
 
 import { LocalidadeModule } from './localidades/localidades.module';
