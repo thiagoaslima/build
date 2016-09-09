@@ -25,6 +25,7 @@ export class LocalidadeComponent implements OnInit {
             .map(params => params['estado'])
             .filter(slug => !!slug)
             .switchMap<UF>(slug => this.localidadeService.getUfBySlug(slug))
-            .distinctUntilChanged();
+            .distinctUntilChanged()
+            .filter(estado => !!estado);
     }
 }

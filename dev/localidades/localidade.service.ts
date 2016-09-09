@@ -22,27 +22,20 @@ interface Localidade {
     slug: string;
 }
 
-export class Municipio implements Localidade {
+export interface Municipio extends Localidade {
     codigo: number;
     uf: number;
     nome: string;
     slug: string;
 }
 
-export class UF implements Localidade {
+export interface UF extends Localidade {
     codigo: number;
+    capital: number;
     nome: string;
     slug: string;
     sigla: string;
     municipios: Municipio[];
-
-    constructor({codigo = 0, nome = '', slug = '', sigla = '', municipios = []} = {}) {
-        this.codigo = codigo;
-        this.nome = nome;
-        this.slug = slug;
-        this.sigla = sigla;
-        this.municipios = municipios;
-    }
 }
 
 interface LocalidadeCache<K extends Localidade> {
@@ -69,10 +62,9 @@ export class LocalidadeService {
 
     private _municipios: LocalidadeCache<Municipio>;
     private _ufs: LocalidadeCache<UF>;
+    private _get = this.__get();
 
-    constructor(private http: Http) { 
-        this._get = this._get();
-    }
+    constructor(private http: Http) {}
 
     public getMunicipioBySlug(slug: string, force = false) {
         return this._get(TIPO_LOCALIDADE.MUNICIPIO, AGRUPADO_POR.SLUG, slug, force);
@@ -88,7 +80,7 @@ export class LocalidadeService {
         return this._get(TIPO_LOCALIDADE.UF, AGRUPADO_POR.CODIGO, slug, force);
     }
 
-    private _get(tipoLocalidade:string, agrupadoPor: string, key: string | number, force = false): Observable<Municipio | UF> {
+    private __get(): _get {
         let returned = false;
 
         return function _get(tipoLocalidade:string, agrupadoPor: string, key: string | number, force = false): Observable<Municipio | UF> {
@@ -159,3 +151,6 @@ function extractData(res: Response) {
     return body.data || [];
 }
 
+interface _get {
+    (tipoLocalidade:string, agrupadoPor: string, key: string | number, force: boolean): Observable<Municipio | UF>
+}
