@@ -8,5 +8,4 @@ import { Component } from '@angular/core';
     <a routerLink="/pesquisas/censo">Pesquisa</a>
     <router-outlet></router-outlet>`
 })
-
 export class RootComponent { }
